@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GyanVerse AI</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<h1>
+    GyanVerse AI
+    <span class="toggle" onclick="toggleTheme()">🌙 Dark</span>
+</h1>
+
+<div class="container">
+
+    <!--  SIDEBAR -->
+    <div class="sidebar">
+        <h3>⚡ Actions</h3>
+
+        <button onclick="document.getElementById('imageInput').click()">
+            📄 Upload Notes
+        </button>
+
+        <button onclick="generateMCQ()">
+            🎯 Generate MCQ
+        </button>
+
+        <button onclick="clearOutputs()">
+            🧹 Clear Screen
+        </button>
+    </div>
+
+    <!--  MAIN -->
+    <div class="main">
+
+        <!-- OCR -->
+        <div class="card">
+            <h3>📄 Scan Notes</h3>
+            <input type="file" id="imageInput">
+            <button onclick="uploadImage()">Scan</button>
+            <pre id="ocrResult"></pre>
+        </div>
+
+        <!-- Ask AI -->
+        <div class="card">
+            <h3>💬 Ask AI</h3>
+            <input type="text" id="question" placeholder="Ask from notes...">
+            <button onclick="sendMessage()">Ask</button>
+            <pre id="answer"></pre>
+        </div>
+
+        <!-- MCQ -->
+        <div class="card">
+            <h3>🎯 Generate MCQs</h3>
+            <button onclick="generateMCQ()">Generate</button>
+            <pre id="mcq"></pre>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>
